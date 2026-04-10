@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Libre Baskerville", serif;
+}
+
+:root {
+  --bg: #050505;
+  --ink: #f5f5f5;
+  --accent: #8b0000;
+  --accent-bright: #ff0000;
+  --line: rgba(255, 255, 255, 0.05);
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.horror-glow {
+  text-shadow: 0 0 10px rgba(139, 0, 0, 0.5);
+}
+
+.red-neon-glow {
+  box-shadow: 0 0 15px rgba(139, 0, 0, 0.3);
+}
+
+.red-neon-glow:hover {
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.5);
+}
+
+.reading-container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  position: relative;
+  z-index: 10;
+}
+
+.serif {
+  font-family: var(--font-serif);
+}
+
+/* Custom scrollbar for horror theme */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-bright);
+}
+
+@keyframes fog {
+  0% { transform: translate(-10%, -10%) scale(1); opacity: 0.3; }
+  50% { transform: translate(10%, 10%) scale(1.1); opacity: 0.5; }
+  100% { transform: translate(-10%, -10%) scale(1); opacity: 0.3; }
+}
+
+.fog-layer {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(20, 20, 20, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+  filter: blur(100px);
+}
+
+.vignette {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle, transparent 40%, rgba(0,0,0,0.8) 100%);
+  pointer-events: none;
+  z-index: 5;
+}
